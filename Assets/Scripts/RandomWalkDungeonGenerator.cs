@@ -16,11 +16,8 @@ public class RandomWalkDungeonGenerator : AbstractDungeonGenerator
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tilemapVisualizer.Clear();
         tilemapVisualizer.PaintFloorTiles(floorPositions);
-
-        foreach (var position in floorPositions)
-        {
-            Debug.Log(position);
-        }
+        WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
+        
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()
